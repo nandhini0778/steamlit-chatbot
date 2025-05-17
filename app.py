@@ -9,7 +9,7 @@ st.title("Simple Chatbot with Gemini")
 
 # Initialize chat history in Streamlit's session state if it doesn't exist
 if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = [SystemMessage(content="You are a helpful assistant.")
+    st.session_state["chat_history"] = SystemMessage(content="You are a helpful assistant.")
 
 # Initialize the ChatGoogleGenerativeAI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
