@@ -1,15 +1,16 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 import streamlit as st
 import os
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 # Set the title of the Streamlit app
 st.title("Simple Chatbot with Gemini")
 
 # Initialize chat history in Streamlit's session state if it doesn't exist
 if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = SystemMessage(content="You are a helpful assistant.")
+    st.session_state["chat_history"] = [SystemMessage(content="You are a helpful assistant.")]
+
 
 # Initialize the ChatGoogleGenerativeAI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
