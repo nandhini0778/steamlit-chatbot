@@ -1,1 +1,2 @@
 streamlit
+langchain_google_geanai
